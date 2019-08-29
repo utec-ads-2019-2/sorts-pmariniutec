@@ -4,14 +4,24 @@
 #include "sort.h"
 
 class InsertSort : public Sort {       
-    public:
-        InsertSort(int *elements, size_t size) : Sort(elements, size) {}
+  public:
+	InsertSort(int *elements, size_t size) : Sort(elements, size) {}
 
-        void execute() {
-            // TODO
-        }
+	void execute() {
+	  int key, j;
+	  for (int i = 1; i < size; i++) {
+		key = elements[i];
+		j = i - 1;
 
-        inline string name() { return "InsertSort"; }
+		while (j >= 0 && elements[j] > key) {
+		  elements[j + 1] = elements[j];
+		  j = j - 1;
+		}
+		elements[j + 1] = key;
+	  }
+	}
+
+	inline std::string name() { return "InsertSort"; }
 };
 
 #endif

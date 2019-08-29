@@ -4,14 +4,24 @@
 #include "sort.h"
 
 class ShellSort : public Sort {       
-    public:
-        ShellSort(int *elements, size_t size) : Sort(elements, size) {}
+  public:
+	ShellSort(int *elements, size_t size) : Sort(elements, size) {}
 
-        void execute() {
-            // TODO
-        }
+	void execute() {
+	  for (int gap = size / 2; gap > 0; gap /= 2) {
+		for (int i = gap; i < size; ++i) {
+		  int temp = elements[i];
 
-        inline string name() { return "ShellSort"; }
+		  int j;
+		  for (j = i; j >= gap && elements[j - gap] > temp; j -= gap)
+			elements[j] = elements[j - gap];
+
+		  elements[j] = temp;
+		}
+	  }
+	}
+
+	inline std::string name() { return "ShellSort"; }
 };
 
 #endif

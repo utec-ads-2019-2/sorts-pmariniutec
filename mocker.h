@@ -9,16 +9,16 @@ using namespace std;
 #define MAX 100
 
 class Mocker {
-    private:
-        mt19937 rng;
-        
-    public:
-        Mocker() {
-            rng.seed(random_device()());
-        }
+  private:
+	mt19937 rng;
 
-        int generateRandomInt();
-        int* generateRandomIntArray(size_t);
+  public:
+	Mocker() {
+	  rng.seed(random_device()());
+	}
+
+	int generateRandomInt();
+	int* generateRandomIntArray(size_t);
 };
 
 #endif

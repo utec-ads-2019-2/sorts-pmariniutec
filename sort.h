@@ -2,20 +2,19 @@
 #define SORT_H
 
 #include <algorithm>
-
-using namespace std;
+#include <string>
 
 class Sort {
-    protected:
-        int *elements;
-        size_t size;
-        
-    public:
-        Sort(int *elements, size_t size) : elements(elements), size(size) {}
+  protected:
+	int *elements;
+	size_t size;
 
-        virtual void execute() = 0;
+  public:
+	Sort(int *elements, size_t size) : elements(elements), size(size) {}
 
-        virtual string name() = 0;
+	virtual void execute() = 0;
+
+	virtual std::string name() = 0;
 };
 
 #endif
